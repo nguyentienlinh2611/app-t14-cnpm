@@ -5,7 +5,6 @@ Rubik Online là 1 game online trên nền tảng web giải mã các khối rub
 * Thi đấu  online: tổ chức thi đấu giữa các người chơi, ai hoàn thành trong thời gian nhanh nhất sẽ giành chiến thắng.
 * Giải rubik tự động: người chơi chọn màu theo lần lượt các mặt, chương trình sẽ trả về các bước để giải. Chương trình sẽ áp dụng thuật toán A Star. Cụ thể trong issue.
 ### Technical
-Các công nghệ sẽ sử dụng:
-	* HTML5 & CSS3: để vẽ giao diện cho chương trình, render rubik.
-	* Three.js: library 3D dùng để xử lý chuyển động 3 chiều.
-	* Java Spring or PHP Lavarel: Framework để xây dựng backend.
+* HTML5 & CSS3: để vẽ giao diện cho chương trình, render rubik.
+* Three.js: library 3D dùng để xử lý chuyển động 3 chiều.
+* Java Spring or PHP Lavarel: Framework để xây dựng backend.

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app-t14-cnpm.iml" filepath="$PROJECT_DIR$/app-t14-cnpm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rubikonline/rubikonline.iml" filepath="$PROJECT_DIR$/rubikonline/rubikonline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rubikonline.iml" filepath="$PROJECT_DIR$/rubikonline.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,5 @@
 var cube = new ERNO.Cube();
-
+var timer = new Watch();
 $(document).ready(function() {
     $("#btn-play").click(function () {
         console.log("init game");
@@ -9,19 +9,19 @@ $(document).ready(function() {
                      .append("<div class='countdown'><div class='countdown-text'>Time</div><div class='countdown-digit' id='seconds'>00</div> </div>")
                      .append( cube.domElement );
         cube.shuffle(20);
-        var timer = new Watch();
-        setTimeout(function(){timer.countdown(3000)},11000);
+        setTimeout(function(){timer.countdown(3000)},12000);
     });
 })
 function Watch() {
     var self = this;
-    this.seconds = document.getElementById("seconds");
 }
 Watch.prototype.countdown = function(duration) {
     var self = this;
+    this.seconds = document.getElementById("seconds");
     var start = null;
     this.duration = duration;
     cube.paused = true;
+    console.log(this.seconds);
     var remainingSeconds =this.seconds.textContent = this.duration/1000;
     function draw(now) {
         if (!start) start = now;
@@ -66,6 +66,9 @@ Watch.prototype.stopwatch = function () {
         }
         self.seconds.textContent = min + ":" + sec + "." + millisec;
     }
+    this.getDuration = function () {
+        return min*60+sec+millisec*0.01;
+    }
 }
 function SolveSuccess() {
     var self = this;
@@ -74,7 +77,53 @@ function SolveSuccess() {
         "<img class='modal-icon u-imgResponsive' src='./media/100daysui_100icon.png'>" +
         "<div class='modal-header'>Congratulations!</div><div class='modal-subheader'>You have successfully solved in "+$('#seconds').text()+"</div>" +
         "</div>" +
-        "<div class='modal-bottom'><div class='modal-input'><input></div><div class='modal-button'><a href='' class='submit'>Submit</a><a href='' class='share'>Share</a></div> </div> </div> " +
+        "<div class='modal-bottom'><div class='modal-input'><input id='username'><a onclick='sendRecord()' class='submit'>Submit</a></div> </div> </div> " +
         "</div>");
 }
+function post(url, data) {
+    return $.ajax({
+        type: 'POST',
+        url: url,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(data)
+    })
+}
+function getPreviousMessages() {
+    console.log($.get('/record'));
+    $.get('/record').done(messages => appendMessage(messages));
+}
+
+function appendMessage(messages) {
+    messages.forEach(function (message,index) {
+        $("mark:eq("+index+")").html(message.userName);
+        $("small:eq("+index+")").html(message.duration);
+    })
+}
+
+function sendRecord() {
+    var usernameInput = $('#username').val();
+    var record = {userName: usernameInput, duration:timer.getDuration(),time:Date.now()};
+    post('/record', record);
+    window.location.reload(true);
+}
+
+function onNewMessage(result) {
+    var message = JSON.parse(result.body);
+    console.log(message);
+}
+
+function connectWebSocket() {
+    var socket = new SockJS('/rubikonlineWS');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, (frame) => {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/records', onNewMessage);
+    });
+}
+
+getPreviousMessages();
+connectWebSocket();
 

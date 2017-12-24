@@ -956,26 +956,27 @@ Leaderboard
 	-moz-box-shadow: 0px 10px 14px -7px #3dc21b;
 	-webkit-box-shadow: 0px 10px 14px -7px #3dc21b;
 	box-shadow: 0px 10px 14px -7px #3dc21b;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #44c767), color-stop(1, #5cbf2a));
-	background:-moz-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:-webkit-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:-o-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:-ms-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
-	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#44c767', endColorstr='#5cbf2a',GradientType=0);
-	background-color:#44c767;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #44c767), color-stop(1, #5cbf2a));
+	background: -moz-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background: -webkit-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background: -o-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background: -ms-linear-gradient(top, #44c767 5%, #5cbf2a 100%);
+	background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#44c767', endColorstr='#5cbf2a',GradientType=0);
+	background-color: #44c767;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 12px 32px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2f6627;
+	margin-left: 10px;
 }
 .submit:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cbf2a), color-stop(1, #44c767));
@@ -1030,6 +1031,25 @@ Leaderboard
 	position:relative;
 	top:1px;
 }
-
-
+#username{
+	display: inline-block;
+	width: 50%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	margin-left: 50px;
+}
+.modal-input{
+	margin-top: 30px;
+}
 

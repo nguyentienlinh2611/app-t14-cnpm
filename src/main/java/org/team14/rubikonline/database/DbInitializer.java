@@ -27,7 +27,7 @@ public class DbInitializer implements InitializingBean {
         if (!tables.contains("records")) {
             r.db("rubikonline").tableCreate("records").run(connection);
             //khóa phụ là tên người dùng
-            r.db("rubikonline").table("records").indexCreate("userName").run(connection);
+            r.db("rubikonline").table("records").indexCreate("duration").run(connection);
         }
     }
 }

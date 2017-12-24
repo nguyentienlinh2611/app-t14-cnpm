@@ -1,4 +1,4 @@
-package org.team14.rubikonline.model;
+package org.team14.rubikonline;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

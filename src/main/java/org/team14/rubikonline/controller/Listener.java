@@ -11,7 +11,6 @@ import org.team14.rubikonline.object.Record;
 
 @Service
 public class Listener {
-
     @Autowired
     private RethinkDBConnectionFactory connectionFactory;
 
@@ -20,9 +19,8 @@ public class Listener {
 
     @Async
     public void pushChangesToWebSocket() {
-        Cursor<Record> cursor = RethinkDB.r.db("rubikonline").table("records").changes()
-                .getField("new_val")
-                .run(connectionFactory.createConnection(), Record.class);
+        Cursor<Record> cursor = RethinkDB.r.db("rubikonline").table("records").orderBy().optArg("index","duration")
+                .limit(5).changes().run(connectionFactory.createConnection(), Record.class);
 
         while (cursor.hasNext()) {
             Record record = cursor.next();
